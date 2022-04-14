@@ -1,4 +1,4 @@
-#import java.util.Random;
+import java.util.Random;
 
 public class assigment04 {
 	int heapsize;
@@ -19,7 +19,7 @@ public class assigment04 {
 	}
 
 	void Heapify(int array[], int i){
-		int le = array[i--], ri = array[i++], largest = 0;
+		int le = (2 * i) + 1, ri = (2 * i) + 2, largest = 0;
 		if (le <= heapsize && (array[le] > array[i]))
 			largest = le;
 		else
