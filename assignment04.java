@@ -1,10 +1,11 @@
 import java.util.Random;
+import java.lang.Math;
 
-public class assigment04 {
+public class assignment04 {
 	int heapsize;
 	void Heapsort(int array []){
 		BuildHeap(array);
-		for (int i = array.length(); i > 2; i--){
+		for (int i = array.length - 1; i > 1; i--){
 			exchange(array[1], array[i]);
 			heapsize = heapsize - 1;
 			Heapify(array, 1);
@@ -12,8 +13,8 @@ public class assigment04 {
 	}
 
 	void BuildHeap(int array []){
-		heapsize = array.length();
-		for (int i = (array.length() / 2).floor(); i > 1; i--){
+		heapsize = array.length;
+		for (int i = (int) Math.floor(array.length - 1 / 2); i > 0; i--){
 			Heapify(array, i);
 		}
 	}
@@ -55,52 +56,53 @@ public class assigment04 {
 	}
 
 	public static void main(String[] args) {
-		int randArray1 [20], randArray1 [20], 
-		randArray1 [20], randArray1 [20], randArray1 [20];
+	    assignment04 as = new assignment04();
+		int randArray1 [] = new int [20], randArray2 [] = new int [20], randArray3 [] = new int [20], 
+		randArray4 [] = new int [20], randArray5 [] = new int [20];
 		int a = 1, b = 2;
-		exchange(a, b);
+		as.exchange(a, b);
 		System.out.println(a + " " + b);
-		fillInTheBlanks(randArray1);
-		fillInTheBlanks(randArray2);
-		fillInTheBlanks(randArray3);
-		fillInTheBlanks(randArray4);
-		fillInTheBlanks(randArray5);
+		as.fillInTheBlanks(randArray1);
+		as.fillInTheBlanks(randArray2);
+		as.fillInTheBlanks(randArray3);
+		as.fillInTheBlanks(randArray4);
+		as.fillInTheBlanks(randArray5);
 
 		System.out.println("#1 Array: ");
-		printArray(randArray1);
+		as.printArray(randArray1);
 
 		System.out.println("#2 Array: ");
-		printArray(randArray2);
+		as.printArray(randArray2);
 
 		System.out.println("#3 Array: ");
-		printArray(randArray3);
+		as.printArray(randArray3);
 
 		System.out.println("#4 Array: ");
-		printArray(randArray4);
+		as.printArray(randArray4);
 
 		System.out.println("#5 Array: ");
-		printArray(randArray5);
+		as.printArray(randArray5);
 
-		Heapsort(randArray1);
-		Heapsort(randArray2);
-		Heapsort(randArray3);
-		Heapsort(randArray4);
-		Heapsort(randArray5);
+		as.Heapsort(randArray1);
+		as.Heapsort(randArray2);
+		as.Heapsort(randArray3);
+		as.Heapsort(randArray4);
+		as.Heapsort(randArray5);
 
 		System.out.println("#1 Array: ");
-		printArray(randArray1);
+		as.printArray(randArray1);
 
 		System.out.println("#2 Array: ");
-		printArray(randArray2);
+		as.printArray(randArray2);
 
 		System.out.println("#3 Array: ");
-		printArray(randArray3);
+		as.printArray(randArray3);
 
 		System.out.println("#4 Array: ");
-		printArray(randArray4);
+		as.printArray(randArray4);
 
 		System.out.println("#5 Array: ");
-		printArray(randArray5);
+		as.printArray(randArray5);
 	}
 
 }
