@@ -6,14 +6,14 @@ public class assignment04 {
 	void Heapsort(int array []){
 		BuildHeap(array);
 		for (int i = array.length - 1; i > 1; i--){
-			exchange(array[1], array[i]);
+			exchange(array[0], array[i]);
 			heapsize = heapsize - 1;
-			Heapify(array, 1);
+			Heapify(array, 0);
 		}
 	}
 
 	void BuildHeap(int array []){
-		heapsize = array.length;
+		heapsize = array.length - 1;
 		for (int i = (int) Math.floor(array.length - 1 / 2); i > 0; i--){
 			Heapify(array, i);
 		}
@@ -59,9 +59,7 @@ public class assignment04 {
 	    assignment04 as = new assignment04();
 		int randArray1 [] = new int [20], randArray2 [] = new int [20], randArray3 [] = new int [20], 
 		randArray4 [] = new int [20], randArray5 [] = new int [20];
-		int a = 1, b = 2;
-		as.exchange(a, b);
-		System.out.println(a + " " + b);
+
 		as.fillInTheBlanks(randArray1);
 		as.fillInTheBlanks(randArray2);
 		as.fillInTheBlanks(randArray3);
