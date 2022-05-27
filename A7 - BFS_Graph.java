@@ -1,45 +1,49 @@
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class BFS_Graph {
-    private int vertices;
-    private LinkedList<Integer> adjacency[];
-    LinkedList<String> color[];
-    LinkedList<Integer> d [];
-    LinkedList<Integer> precessor [];
-
-    BFS_Graph(int vertice){
-        vertices = vertice;
-        adjacency = new LinkedList[vertice];
-        color = new LinkedList[vertice];
-        d = new LinkedList[vertice];
-        precessor = new LinkedList[vertice];
-
-        for (int i = 0; i < vertice; i++)
-            adjacency[i] = new LinkedList();
+	int vertex;
+	
+    class Node{
+    	String color;
+    	int d, precessor;
+    	Node next;
     }
-
-    void edge(int from, int to){
-        adjacency[from].add(to);
-    }
-
-    void BFS(BFS_Graph G, int s){
-        int size = G.adjacency[s].size();
-
-        for (int i = 0; i < size; i++){
-            if (G.adjacency[i] != G.adjacency[s]){
-                G.color[i].set(i, "WHITE");
-                G.d[i].set(i, -1);
-                G.precessor[i].set(i, null);
-            }
-        }
-
-        G.color[s].set(s, "GRAY");
-        G.d[s].set(s, 0);
-        G.precessor[s].set(s, 0);
-
+    
+    LinkedList <BFS_Graph.Node> Adj[];
+    
+    void BFS(BFS_Graph G, Node s) {
+    	for (LinkedList<BFS_Graph.Node> u: G.Adj) {
+    		if (!s.equals(u))
+    		u.color = "WHITE";
+    		u.d = -1;
+    		u.precessor = (Integer) null;
+    	}
+    	s.color = "GRAY";
+    	s.d = 0;
+    	s.precessor = (Integer) null;
+    	
+    	Queue <BFS_Graph.Node> queue = null;
+    	queue.add(s);
+    	
+    	while (!queue.isEmpty()) {
+    		BFS_Graph.Node u = queue.poll();
+    		for (Node v: G.Adj[u]) {
+    			
+    		}
+    	}
     }
 
     public static void main(String[] args) {
-
+    	BFS_Graph bfsg = new BFS_Graph(5);
+    	bfsg.addEdge(0, 1);
+    	bfsg.addEdge(2, 1);
+    	bfsg.addEdge(3, 1);
+    	bfsg.addEdge(1, 2);
+    	bfsg.addEdge(1, 4);
+    	bfsg.addEdge(4, 3);
+    	bfsg.addEdge(3, 2);
+    	bfsg.addEdge(2, 3);
+    	bfsg.printGraph(bfsg);
     }
 }
